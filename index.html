@@ -5,10 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Practice</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles.css">
     <script src="./scripts.js" defer></script>
 </head>
 <body>
+
+    <form novalidate>
+        <label for="email">
+            <input type="email" name="email" id="email" placeholder='Email' required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="country">
+            <input type="text" name="country" id="country" placeholder='Country' required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="zip">
+            <input type="text" name="zip" id="zip" placeholder='Zip Code' required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="password">
+            <input type="password" name="password" id="password" placeholder='Password' required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="password-confirmation">
+            <input type="password" name="password-confirmation" id="password-confirmation" placeholder='Confirm Password' required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="submit">
+            <input type="button" name="submit" id="submit" value="Submit" required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+    </form>
     
 </body>
 </html>
