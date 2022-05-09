@@ -1,83 +1,117 @@
+const divWrapper = document.querySelector('form-wrapper');
 const form = document.querySelector('form');
 const email = document.querySelector('#email');
+const emailError = document.querySelector('#email + span.error');
 const country = document.querySelector('#country');
+const countryError = document.querySelector('#country + span.error');
 const zipcode = document.querySelector('#zip');
+const zipError = document.querySelector('#zip + span.error');
 const password = document.querySelector('#password');
+const passwordError = document.querySelector('#password + span.error');
 const pwConfirm = document.querySelector('#password-confirmation');
+const pwConfirmError = document.querySelector('#password-confirmation + span.error')
 
 email.addEventListener('input', validateEmail);
 country.addEventListener('input', validateCountry);
 zipcode.addEventListener('input', validateZip);
 password.addEventListener('input', validatePassword);
 pwConfirm.addEventListener('input', validateConfirm);
+form.addEventListener('submit', formSubmitted);
 
-function validateEmail(event) {
+function formSubmitted(event) {
+    event.preventDefault();
 
-    let email = event.target;
+    if(validateEmail() && 
+    validateCountry() && 
+    validateZip() && 
+    validatePassword() && 
+    validateConfirm()) {
+        console.log('Form submitted');
+    }
+}
+
+function validateEmail() {
     
     if(email.validity.valueMissing){
-        showError(getErrorElement(event), 'Email is required');
+        showError(emailError, 'Email is required');
+        return false;
     } else
     if(email.validity.typeMismatch) {
-        showError(getErrorElement(event), 'Email is invalid');
+        showError(emailError, 'Email is invalid');
+        return false;
     } else {
-        clearError(getErrorElement(event));
+        clearError(emailError);
+        return true;
     }
 }
 
-function validateCountry(event) {
+function validateCountry() {
     if(country.validity.valueMissing) {
-        showError(getErrorElement(event), 'Country is required');
+        showError(countryError, 'Country is required');
+        return false;
     } else 
     if(country.validity.typeMismatch) {
-        showError(getErrorElement(event), 'Country is invalid');
+        showError(countryError, 'Country is invalid');
+        return false;
     } else {
-        clearError(getErrorElement(event));
+        clearError(countryError);
+        return true;
     }
 }
 
-function validateZip(event) {
+function validateZip() {
     if(zipcode.validity.valueMissing) {
-        showError(getErrorElement(event), 'Zipcode is required');
+        showError(zipError, 'Zipcode is required');
+        return false;
     } else 
     if(zipcode.validity.typeMismatch) {
-        showError(getErrorElement(event), 'Zipcode is invalid');
+        showError(zipError, 'Zipcode is invalid');
+        return false;
     } else {
-        clearError(getErrorElement(event));
+        clearError(zipError);
+        return true;
     }
 }
 
-function validatePassword(event) {
-    console.log(password);
-    console.log(password.value);
+function validatePassword() {
+
     if(password.validity.valueMissing) {
-        showError(getErrorElement(event), 'Password is required');
+        showError(passwordError, 'Password is required');
+        return false;
     } else 
     if(password.validity.typeMismatch) {
-        showError(getErrorElement(event), 'Password is invalid');
+        showError(passwordError, 'Password is invalid');
+        return false;
     } else
     if(password.validity.tooShort){
-        showError(getErrorElement(event), 'Password is too short');
+        showError(passwordError, 'Password is too short');
+        return false;
     } else {
-        clearError(getErrorElement(event));
+        clearError(passwordError);
+        return true;
     }
 }
 
-function validateConfirm(event) {
+function validateConfirm() {
 
     if(pwConfirm.validity.valueMissing) {
-        showError(getErrorElement(event), 'Password is required');
+        showError(pwConfirmError, 'Password is required');
+        return false;
     } else 
     if(pwConfirm.validity.typeMismatch) {
-        showError(getErrorElement(event), 'Password is invalid');
+        showError(pwConfirmError, 'Password is invalid');
+        return false;
     } else
     if(pwConfirm.validity.tooShort){
-        showError(getErrorElement(event), 'Password is too short');
+        showError(pwConfirmError, 'Password is too short');
+        return false;
     } else
     if(password.value !== pwConfirm.value) {
-        showError(getErrorElement(event), 'Passwords don\'t match');
+        showError(pwConfirmError, 'Passwords don\'t match');
+        return false;
     } else {
-        clearError(getErrorElement(event));
+        clearError(pwConfirmError);
+        return true;
     } 
 }
 
@@ -89,8 +123,4 @@ function showError(errorElement, message) {
 function clearError(errorElement) {
     errorElement.textContent = '';
     errorElement.className = 'error';
-}
-
-function getErrorElement(event) {
-    return event.target.parentElement.querySelector(`#${event.target.id} + span.error`);
 }
