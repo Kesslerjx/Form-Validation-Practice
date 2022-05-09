@@ -1,4 +1,4 @@
-const divWrapper = document.querySelector('form-wrapper');
+const highFiveGif = document.querySelector('#high-five-gif');
 const form = document.querySelector('form');
 const email = document.querySelector('#email');
 const emailError = document.querySelector('#email + span.error');
@@ -27,6 +27,7 @@ function formSubmitted(event) {
     validatePassword() && 
     validateConfirm()) {
         console.log('Form submitted');
+        highFiveGif.style.display = 'block';
     }
 }
 
