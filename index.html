@@ -10,32 +10,36 @@
 </head>
 <body>
 
-    <form novalidate>
-        <label for="email">
-            <input class="user-input" type="email" name="email" id="email" placeholder='Email' required>
-            <span class="error" aria-live="polite"></span>
-        </label>
-        <label for="country">
-            <input class="user-input" type="text" name="country" id="country" placeholder='Country' required>
-            <span class="error" aria-live="polite"></span>
-        </label>
-        <label for="zip">
-            <input class="user-input" type="text" name="zip" id="zip" placeholder='Zip Code' required>
-            <span class="error" aria-live="polite"></span>
-        </label>
-        <label for="password">
-            <input class="user-input" type="password" name="password" id="password" placeholder='Password' required  minlength='12' >
-            <span class="error" aria-live="polite"></span>
-        </label>
-        <label for="password-confirmation">
-            <input class="user-input" type="password" name="password-confirmation" id="password-confirmation" placeholder='Confirm Password' required minlength='12'>
-            <span class="error" aria-live="polite"></span>
-        </label>
-        <label for="submit">
-            <input class="submit-button" type="button" name="submit" id="submit" value="Submit" required>
-            <span class="error" aria-live="polite"></span>
-        </label>
-    </form>
+    <div class="form-wrapper">
+
+        <form novalidate>
+            <label for="email">
+                <input class="user-input" type="email" name="email" id="email" placeholder='Email' required>
+                <span class="error" aria-live="polite"></span>
+            </label>
+            <label for="country">
+                <input class="user-input" type="text" name="country" id="country" placeholder='Country' required>
+                <span class="error" aria-live="polite"></span>
+            </label>
+            <label for="zip">
+                <input class="user-input" type="text" name="zip" id="zip" placeholder='Zip Code' required>
+                <span class="error" aria-live="polite"></span>
+            </label>
+            <label for="password">
+                <input class="user-input" type="password" name="password" id="password" placeholder='Password' required  minlength='12' >
+                <span class="error" aria-live="polite"></span>
+            </label>
+            <label for="password-confirmation">
+                <input class="user-input" type="password" name="password-confirmation" id="password-confirmation" placeholder='Confirm Password' required minlength='12'>
+                <span class="error" aria-live="polite"></span>
+            </label>
+            <label for="submit">
+                <input class="submit-button" type="button" name="submit" id="submit" value="Submit" required>
+                <span class="error" aria-live="polite"></span>
+            </label>
+        </form>
+
+    </div>
     
 </body>
 </html>
