@@ -12,27 +12,27 @@
 
     <form novalidate>
         <label for="email">
-            <input type="email" name="email" id="email" placeholder='Email' required>
+            <input class="user-input" type="email" name="email" id="email" placeholder='Email' required>
             <span class="error" aria-live="polite"></span>
         </label>
         <label for="country">
-            <input type="text" name="country" id="country" placeholder='Country' required>
+            <input class="user-input" type="text" name="country" id="country" placeholder='Country' required>
             <span class="error" aria-live="polite"></span>
         </label>
         <label for="zip">
-            <input type="text" name="zip" id="zip" placeholder='Zip Code' required>
+            <input class="user-input" type="text" name="zip" id="zip" placeholder='Zip Code' required>
             <span class="error" aria-live="polite"></span>
         </label>
         <label for="password">
-            <input type="password" name="password" id="password" placeholder='Password' required>
+            <input class="user-input" type="password" name="password" id="password" placeholder='Password' required  minlength='12' >
             <span class="error" aria-live="polite"></span>
         </label>
         <label for="password-confirmation">
-            <input type="password" name="password-confirmation" id="password-confirmation" placeholder='Confirm Password' required>
+            <input class="user-input" type="password" name="password-confirmation" id="password-confirmation" placeholder='Confirm Password' required minlength='12'>
             <span class="error" aria-live="polite"></span>
         </label>
         <label for="submit">
-            <input type="button" name="submit" id="submit" value="Submit" required>
+            <input class="submit-button" type="button" name="submit" id="submit" value="Submit" required>
             <span class="error" aria-live="polite"></span>
         </label>
     </form>

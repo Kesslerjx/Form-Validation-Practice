@@ -1,5 +1,55 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: block;
+}
+
+input:invalid {
+    border-color: darkred;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+.user-input {
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+}
+
+.error {
+    width: 100%;
+    background-color: darkred;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.5rem;
+    display: block;
+}
+
+.submit-button {
+    padding: 0.5rem;
+    border: none;
+    background-color: darkslategrey;
+    color: white;
+    letter-spacing: 0.1rem;
 }
